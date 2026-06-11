@@ -1,0 +1,170 @@
+{
+    "app-id": "page.codeberg.sesivany.Meshy",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "50",
+    "sdk": "org.gnome.Sdk",
+    "command": "meshy",
+    "finish-args": [
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--socket=wayland",
+        "--system-talk-name=org.bluez",
+        "--share=network",
+        "--device=all"
+    ],
+    "cleanup": [
+        "/include",
+        "/lib/pkgconfig",
+"*.la",
+        "*.a"
+    ],
+    "modules": [
+        {
+            "name": "zbar",
+            "buildsystem": "autotools",
+            "config-opts": [
+                "--without-qt",
+                "--without-gtk",
+                "--without-java",
+                "--without-imagemagick",
+                "--without-dbus",
+                "--without-npapi",
+                "--without-xv",
+                "--without-xshm",
+                "--disable-video",
+                "--disable-nls"
+            ],
+            "cleanup": [
+                "/share/doc"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://linuxtv.org/downloads/zbar/zbar-0.23.93.tar.bz2",
+                    "sha256": "83be8f85fc7c288fd91f98d52fc55db7eedbddcf10a83d9221d7034636683fa0"
+                }
+            ]
+        },
+        {
+            "name": "python-pyzbar",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --no-index --find-links=. --prefix=/app pyzbar"
+            ],
+            "cleanup": [
+                "/bin/read_zbar*",
+                "/bin/__pycache__",
+                "/lib/python*/site-packages/pyzbar/tests",
+                "/lib/python*/site-packages/pyzbar*.dist-info"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/6d/24/81ebe6a1c00760471a3028a23cbe0b94e5fa2926e5ba47adc895920887bc/pyzbar-0.1.9-py2.py3-none-any.whl",
+                    "sha256": "4559628b8192feb25766d954b36a3753baaf5c97c03135aec7e4a026036b475d"
+                }
+            ]
+        },
+        {
+            "name": "python-crypto-deps",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --no-index --no-build-isolation --prefix=/app ."
+            ],
+            "cleanup": [
+                "/lib/python*/site-packages/Crypto/SelfTest",
+                "/lib/python*/site-packages/pycryptodome*.dist-info"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://files.pythonhosted.org/packages/8e/a6/8452177684d5e906854776276ddd34eca30d1b1e15aa1ee9cefc289a33f5/pycryptodome-3.23.0.tar.gz",
+                    "sha256": "447700a657182d60338bab09fdb27518f8856aecd80ae4c6bdddb67ff5da44ef"
+                }
+            ]
+        },
+        {
+            "name": "python-segno",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --no-index --find-links=. --prefix=/app segno"
+            ],
+            "cleanup": [
+                "/bin/segno",
+                "/share/man",
+                "/lib/python*/site-packages/segno*.dist-info"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/d6/02/12c73fd423eb9577b97fc1924966b929eff7074ae6b2e15dd3d30cb9e4ae/segno-1.6.6-py3-none-any.whl",
+                    "sha256": "28c7d081ed0cf935e0411293a465efd4d500704072cdb039778a2ab8736190c7"
+                }
+            ]
+        },
+        {
+            "name": "python-pyserial",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --no-index --find-links=. --prefix=/app pyserial"
+            ],
+            "cleanup": [
+                "/bin/pyserial-*",
+                "/lib/python*/site-packages/pyserial*.dist-info"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/07/bc/587a445451b253b285629263eb51c2d8e9bcea4fc97826266d186f96f558/pyserial-3.5-py2.py3-none-any.whl",
+                    "sha256": "c4451db6ba391ca6ca299fb3ec7bae67a5c55dde170964c7a14ceefec02f2cf0"
+                }
+            ]
+        },
+        {
+            "name": "protobuf-c",
+            "buildsystem": "autotools",
+            "config-opts": [
+                "--disable-protoc"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/protobuf-c/protobuf-c/releases/download/v1.5.2/protobuf-c-1.5.2.tar.gz",
+                    "sha256": "e2c86271873a79c92b58fef7ebf8de1aa0df4738347a8bd5d4e65a80a16d0d24"
+                }
+            ]
+        },
+        {
+            "name": "libshumate",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dgtk_doc=false",
+                "-Ddemos=false",
+                "-Dvapi=false",
+                "-Dsysprof=disabled"
+            ],
+            "cleanup": [
+                "/share/gir-1.0"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/libshumate/1.6/libshumate-1.6.1.tar.xz",
+                    "sha256": "b36aad34500791785f546684d0f2ed644e4819ff4e85ae67a2245f159eccb2d4"
+                }
+            ]
+        },
+        {
+            "name": "meshy",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://codeberg.org/sesivany/meshy.git",
+                    "tag": "26.06",
+                    "commit": "95019c4ee079cca0225a648f4a178f826217532f"
+                }
+            ]
+        }
+    ]
+}
