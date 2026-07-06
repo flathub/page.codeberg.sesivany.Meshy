@@ -161,8 +161,8 @@
                 {
                     "type": "git",
                     "url": "https://codeberg.org/sesivany/meshy.git",
-                    "tag": "26.07",
-                    "commit": "c498ac4405f3690b4f6ea55f64cafa646803629f"
+                    "tag": "26.07.1",
+                    "commit": "301c074c8ff4eec05306b0792c30c81b8eba9f08"
                 }
             ]
         }
