@@ -9,6 +9,7 @@
         "--socket=fallback-x11",
         "--socket=wayland",
         "--system-talk-name=org.bluez",
+        "--system-talk-name=org.freedesktop.login1",
         "--share=network",
         "--device=all"
     ],
@@ -78,8 +79,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://files.pythonhosted.org/packages/8e/a6/8452177684d5e906854776276ddd34eca30d1b1e15aa1ee9cefc289a33f5/pycryptodome-3.23.0.tar.gz",
-                    "sha256": "447700a657182d60338bab09fdb27518f8856aecd80ae4c6bdddb67ff5da44ef"
+                    "url": "https://files.pythonhosted.org/packages/34/e0/0d0bd5b1089a4bf5ef48164459289ddf02a9110ca1db854edaad25127e64/pycryptodome-3.24.0.tar.gz",
+                    "sha256": "9140779b40405476a799305b9ac1bcaab4ee6791dc3d38b12a9aa84ffbd6aabf"
                 }
             ]
         },
@@ -143,8 +144,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://files.pythonhosted.org/packages/31/f9/c0a1c127f9049db9155afc316952ea571720dd01833ff5e4d7e8e6352dbb/msgpack-1.2.1.tar.gz",
-                    "sha256": "04c721c2c7448767e9e3f2520a475663d8ee0f09c31890f6d2bd70fd636a9647"
+                    "url": "https://files.pythonhosted.org/packages/0a/e7/bb605a7bab2d8425a64b3fa762b39dc1bf1c7e3f11ba6fb5413d6db0ff8c/msgpack-1.2.3.tar.gz",
+                    "sha256": "32edb81a2b5eb7cd7c9d941b2bfbbb082fd2cd09e0e725930316af6b708db186"
                 }
             ]
         },
@@ -163,8 +164,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/libshumate/1.6/libshumate-1.6.3.tar.xz",
-                    "sha256": "fd15c91396dcd82fce3021648541aa891e71a6bddeffc03d38597580a7da8ca1"
+                    "url": "https://download.gnome.org/sources/libshumate/1.7/libshumate-1.7.0.tar.xz",
+                    "sha256": "3896cc4b6a7bf83141c27df23ce48cdd68467603bc6b764960307cdcbbef80e5"
                 }
             ]
         },
@@ -175,8 +176,8 @@
                 {
                     "type": "git",
                     "url": "https://codeberg.org/sesivany/meshy.git",
-                    "tag": "26.09",
-                    "commit": "a3cc116c284c5034cd4b59f9b3acc6fe9791892c"
+                    "tag": "26.10",
+                    "commit": "aff34b7ece2a9285542c5cacd93063d0fc935648"
                 }
             ]
         }
