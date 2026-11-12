@@ -1,7 +1,7 @@
 {
     "app-id": "page.codeberg.sesivany.Meshy",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "50",
+    "runtime-version": "51",
     "sdk": "org.gnome.Sdk",
     "command": "meshy",
     "finish-args": [
@@ -21,18 +21,18 @@
     "modules": [
         {
             "name": "zbar",
-            "buildsystem": "autotools",
+            "buildsystem": "meson",
             "config-opts": [
-                "--without-qt",
-                "--without-gtk",
-                "--without-java",
-                "--without-imagemagick",
-                "--without-dbus",
-                "--without-npapi",
-                "--without-xv",
-                "--without-xshm",
-                "--disable-video",
-                "--disable-nls"
+                "-Dqt=false",
+                "-Dgtk=no",
+                "-Djava=disabled",
+                "-Dimagemagick=disabled",
+                "-Ddbus=disabled",
+                "-Dnpapi=disabled",
+                "-Dxv=disabled",
+                "-Dxshm=disabled",
+                "-Dvideo=false",
+                "-Dnls=disabled"
             ],
             "cleanup": [
                 "/share/doc"
@@ -40,8 +40,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://linuxtv.org/downloads/zbar/zbar-0.23.93.tar.bz2",
-                    "sha256": "83be8f85fc7c288fd91f98d52fc55db7eedbddcf10a83d9221d7034636683fa0"
+                    "url": "https://linuxtv.org/downloads/zbar/zbar-0.23.95.tar.gz",
+                    "sha256": "7b0907a3114503e0a8fbd1c6bfdb61592e6ded79f68716d7ca673ddeb6a87e99"
                 }
             ]
         },
@@ -78,8 +78,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://files.pythonhosted.org/packages/34/e0/0d0bd5b1089a4bf5ef48164459289ddf02a9110ca1db854edaad25127e64/pycryptodome-3.24.0.tar.gz",
-                    "sha256": "9140779b40405476a799305b9ac1bcaab4ee6791dc3d38b12a9aa84ffbd6aabf"
+                    "url": "https://files.pythonhosted.org/packages/51/f2/ccbeb91d186b2323fc99986499d2da3caab2151b1c2fb2ef74f7488d8934/pycryptodome-4.4.0.tar.gz",
+                    "sha256": "eab7620c60c85f3fa251d026ec06e094f036d96187bebb9752e46fbcebabbb55"
                 }
             ]
         },
@@ -143,8 +143,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://files.pythonhosted.org/packages/0a/e7/bb605a7bab2d8425a64b3fa762b39dc1bf1c7e3f11ba6fb5413d6db0ff8c/msgpack-1.2.3.tar.gz",
-                    "sha256": "32edb81a2b5eb7cd7c9d941b2bfbbb082fd2cd09e0e725930316af6b708db186"
+                    "url": "https://files.pythonhosted.org/packages/cc/52/1ec7ead2c7528bf3d1db73e886fa4df10f9e6f0eb7854a448b7090cfcef7/msgpack-1.2.4.tar.gz",
+                    "sha256": "475c44e12f2a5de766a8448783f149c9b33f3f49b88953c6cd739a77d93c732c"
                 }
             ]
         },
@@ -175,8 +175,8 @@
                 {
                     "type": "git",
                     "url": "https://codeberg.org/sesivany/meshy.git",
-                    "tag": "26.10",
-                    "commit": "aff34b7ece2a9285542c5cacd93063d0fc935648"
+                    "tag": "26.11",
+                    "commit": "b0c3c03ac96e24beeb100e021d965e9df66724bc"
                 }
             ]
         }
